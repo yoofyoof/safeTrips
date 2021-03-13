@@ -1,0 +1,239 @@
+body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #fff;
+  font-weight: 600;
+
+  background-image: url(../images/view.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* index.html */
+/* navigation bar */
+.nav-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.nav-bar li {
+  float: right;
+  margin: 0 20px 0 0;
+}
+
+.nav-bar #title {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav-bar #login {
+  display: block;
+  padding: 10px 10px;
+}
+
+.nav-bar #logout {
+  padding: 10px 10px;
+  display: none;
+}
+
+.nav-bar button {
+  margin-left: 15px;
+}
+/* end of navigation bar */
+
+/* form in index.html*/
+#searchAndReport {
+  padding-top: 70px;
+  padding-bottom: 0px;
+  margin: auto;
+  width: 900px;
+}
+
+input,
+select {
+  border: none;
+  background: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 13px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  position: relative;
+  z-index: 9;
+}
+
+select {
+  display: inline-block;
+  color: #808080;
+  width: 135px;
+  padding: 16px;
+}
+
+label {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.submit {
+  background: #f8ba0f;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+}
+
+.submit:hover {
+  background-color: #ce9906;
+}
+
+::placeholder {
+  color: #808080;
+}
+
+.form-group {
+  align-items: center;
+}
+
+.search-from,
+.search-to {
+  display: inline-block;
+  width: 350px;
+  margin: 5px;
+}
+
+/*.search-single-point {
+  display: inline-block;
+  width: 100px;
+  margin: 5px;
+  text-align: center;
+}*/
+
+.report-date {
+  display: inline-block;
+  width: 200px;
+  margin: 5px;
+}
+
+#report-date {
+  color: #808080;
+}
+
+.report-event {
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.report-address {
+  display: inline-block;
+  width: 350px;
+  margin: 10px;
+}
+
+.report-submit {
+  display: inline-block;
+  width: 100px;
+  margin: 5px;
+}
+/* end of form in index.html*/
+
+/* map*/
+#map {
+  margin: 60px auto;
+  height: 400px;
+  width: 100%;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+/* end of map*/
+/* end of index.html*/
+
+/* login and register pages */
+.login-page,
+.register-page {
+  width: 360px;
+  padding: 10% 0 0;
+  margin: auto;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background-color: #ffffff;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 1;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4caf50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.form button:hover, .form button: active {
+  background: #43A047；;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  font-size: 12px;
+}
+
+.form .message a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.message {
+  color: black;
+}
+
+#login-msg,
+#register-msg {
+  text-align: center;
+  color: red;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: none;
+}
+/* end of login and register pages */

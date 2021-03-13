@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safe Trip</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+  </head>
+
+  <body>
+    <div class="nav-bar">
+      <ul>
+        <li id="title" class="nav-item">Safe Trip</li>
+        <li id="login" class="nav-item">
+          <button class="btn btn-outline-success">Login</button>
+        </li>
+        <li id="logout" class="nav-item">
+          <span id="welcome"
+            >Welcome, <span id="user"></span>
+            <button class="btn btn-outline-success">Logout</button>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div id="searchAndReport">
+      <!--search form-->
+
+      <div class="container" class="searchForm">
+        <form action="/search" id="searchForm" class="searchForm" method="POST">
+          <div class="form-group">
+            <!-- div class="search-submit">
+              <input
+                type="submit"
+                id="search-submit"
+                class="submit"
+                value="Road Trip"
+              />
+            </div> -->
+
+            <div class="search-from">
+              <label for="search-from">From</label>
+              <input
+                type="text"
+                id="search-from"
+                name="search-from"
+                placeholder="San Jose"
+              />
+            </div>
+
+            <span style="font-size: 15px">&#8646;</span>
+
+            <div class="search-to">
+              <label for="search-to">To</label>
+              <input
+                type="text"
+                id="search-to"
+                name="search-to"
+                placeholder="San Francisco"
+              />
+            </div>
+            <!-- 
+            <div class="search-single-point">
+              <label for="search-to">location</label>
+              <input
+                id="search-single-point"
+                class="controls"
+                type="text"
+                placeholder="city name"
+              />
+            </div> -->
+          </div>
+        </form>
+      </div>
+      <!--end of search form-->
+
+      <!--report form-->
+      <div class="container" class="reportForm">
+        <form action="/report" id="reportForm" class="reportForm" method="POST">
+          <div class="form-group">
+            <div class="group-one">
+              <div class="report-date">
+                <label for="date">Date</label>
+                <input type="date" id="report-date" name="date" required />
+              </div>
+
+              <div class="report-event">
+                <label for="event">Event</label>
+                <select id="event" name="event">
+                  <option value="burglary">Burglary</option>
+                  <option value="assault">Assault</option>
+                  <option value="murder">Murder</option>
+                </select>
+              </div>
+
+              <div class="report-address">
+                <label for="report-address">Location</label>
+                <input
+                  id="report-address"
+                  type="text"
+                  name="address"
+                  placeholder="Please input the address"
+                />
+              </div>
+
+              <div class="report-submit">
+                <input
+                  type="submit"
+                  id="submit"
+                  class="submit"
+                  value="Report"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--end of report form-->
+    </div>
+
+    <!--map-->
+    <div class="map">
+      <div id="map"></div>
+    </div>
+    <!--end of map-->
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGEAP26ZE6CYYKRBjkcci_V8YtzlwbC6w&callback=initMap&libraries=places"
+      async
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./javascripts/frontend.js"></script>
+  </body>
+</html>
