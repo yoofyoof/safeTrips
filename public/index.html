@@ -32,7 +32,7 @@
     <div id="searchAndReport">
       <!--search form-->
 
-      <div class="container" class="searchForm">
+      <div class="container">
         <form action="/search" id="searchForm" class="searchForm" method="POST">
           <div class="form-group">
             <!-- div class="search-submit">
@@ -81,13 +81,15 @@
       <!--end of search form-->
 
       <!--report form-->
-      <div class="container" class="reportForm">
+      <div class="container">
         <form action="/report" id="reportForm" class="reportForm" method="POST">
           <div class="form-group">
             <div class="group-one">
               <div class="report-date">
-                <label for="date">Date</label>
-                <input type="date" id="report-date" name="date" required />
+                <label for="date"
+                  >Date
+                  <input type="date" id="report-date" name="date" required />
+                </label>
               </div>
 
               <div class="report-event">
@@ -139,6 +141,5 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
-   
   </body>
 </html>
