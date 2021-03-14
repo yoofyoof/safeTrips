@@ -18,7 +18,6 @@ router.post("/report", (req, res) => {
 
   const MongoClient = require("mongodb").MongoClient;
   var url = "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
-  var DB_NAME = "safeTrip";
   var client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
   // eslint-disable-line no-unused-vars
   client.connect(err=> {
@@ -44,7 +43,6 @@ router.post("/report", (req, res) => {
 router.get("/getReports", function (req, res, next) {
   const MongoClient = require("mongodb").MongoClient;
   var url = "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
-  var DB_NAME = "safeTrip";
   var client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
   client.connect(err=> {
     try {
