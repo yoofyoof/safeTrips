@@ -119,7 +119,12 @@ async function loadReports() {
         codeAddress(address, event);
       }
     });
-    // res.files.forEach(renderReports);
+
+    const resRaw1 = await fetch("/getLogin");
+    const res1 = await resRaw1.json();
+    if (res1.username) {
+      showLogoutButton(res1.username);
+    }
   } catch (e) {
     console.log("error", e);
   }

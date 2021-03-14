@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const myDB = require("../db/MyDB.js");
 
-
 //<-----------add handler for POST and store in db-------->
 /*eslint no-unused-vars: ["error", { "args": "none" }]*/
 router.post("/report", (req, res) => {
@@ -17,10 +16,14 @@ router.post("/report", (req, res) => {
   };
 
   const MongoClient = require("mongodb").MongoClient;
-  var url = "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
-  var client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+  var url =
+    "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
+  var client = new MongoClient(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
   // eslint-disable-line no-unused-vars
-  client.connect(err=> {
+  client.connect((err) => {
     try {
       const collection = client.db("safeTrip").collection("mDB");
       console.log("Mongodb connected");
@@ -42,9 +45,13 @@ router.post("/report", (req, res) => {
 //<----start add handler to view data -------->
 router.get("/getReports", function (req, res, next) {
   const MongoClient = require("mongodb").MongoClient;
-  var url = "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
-  var client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
-  client.connect(err=> {
+  var url =
+    "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
+  var client = new MongoClient(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  client.connect((err) => {
     try {
       const collection = client.db("safeTrip").collection("mDB");
       console.log("Mongodb connected here");
@@ -95,7 +102,20 @@ router.post("/login", async (req, res) => {
     res.send({ loginError: "Wrong username or password!" });
   } else {
     req.session.username = userInfo.username;
+    console.log("test see if it works", userInfo.username);
     res.send({ login: "ok" });
+  }
+});
+
+router.get("/getLogin", async (req, res) => {
+  try {
+    const username = req.session.username;
+    delete req.session.username;
+    res.send({ username: username });
+    console.log(req.session.username);
+  } catch (e) {
+    console.log("Error", e);
+    res.status(400).send({ err: e });
   }
 });
 

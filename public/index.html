@@ -32,18 +32,9 @@
     <div id="searchAndReport">
       <!--search form-->
 
-      <div class="container">
+      <div class="container searchForm">
         <form action="/search" id="searchForm" class="searchForm" method="POST">
           <div class="form-group">
-            <!-- div class="search-submit">
-              <input
-                type="submit"
-                id="search-submit"
-                class="submit"
-                value="Road Trip"
-              />
-            </div> -->
-
             <div class="search-from">
               <label for="search-from">From</label>
               <input
@@ -65,31 +56,19 @@
                 placeholder="San Francisco"
               />
             </div>
-            <!-- 
-            <div class="search-single-point">
-              <label for="search-to">location</label>
-              <input
-                id="search-single-point"
-                class="controls"
-                type="text"
-                placeholder="city name"
-              />
-            </div> -->
           </div>
         </form>
       </div>
       <!--end of search form-->
 
       <!--report form-->
-      <div class="container">
+      <div class="container reportForm">
         <form action="/report" id="reportForm" class="reportForm" method="POST">
           <div class="form-group">
             <div class="group-one">
               <div class="report-date">
-                <label for="date"
-                  >Date
-                  <input type="date" id="report-date" name="date" required />
-                </label>
+                <label for="date">Date </label>
+                <input type="date" id="date" name="date" required />
               </div>
 
               <div class="report-event">
