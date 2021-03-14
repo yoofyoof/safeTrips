@@ -6,6 +6,4 @@ SafeTrip is a report-based web application that allows users to avoid dangerous 
 1. search route and view reports<br>
 ![](./gif/route&reports.gif)
 2. report page<br>
-![](./gif/report.gif)<br>
 3.log in page<br>
-![](./gif/login.gif)
