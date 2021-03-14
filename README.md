@@ -8,7 +8,7 @@ https://safetrips.herokuapp.com/
 
 <h1> Authors </h1>
 
-**Yufei Zhu and Xiaoming Ouyang**<br>
+**Yufei Zhu and Xiaomin Ouyang**<br>
 
 <h1>Demo</h1>
 
