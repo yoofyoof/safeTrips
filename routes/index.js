@@ -2,19 +2,9 @@ const express = require("express");
 const router = express.Router();
 const myDB = require("../db/MyDB.js");
 
-// router.get("/getReports", async (req, res) => {
-//   try {
-//     const files = await myDB.getData("safeTrip", "report", {});
-//     res.send({ files: files, username: req.session.username });
-//   } catch (e) {
-//     console.log("Error", e);
-//     res.status(400).send({ err: e });
-//   }
-// });
 
 //<-----------add handler for POST and store in db-------->
 /*eslint no-unused-vars: ["error", { "args": "none" }]*/
-
 router.post("/report", (req, res) => {
   var date = req.body.date;
   var event = req.body.event;
@@ -26,49 +16,45 @@ router.post("/report", (req, res) => {
     address: address,
   };
 
-  var { MongoClient } = require("mongodb");
-  var url = "mongodb://localhost:27017";
+  const MongoClient = require("mongodb").MongoClient;
+  var url = "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
   var DB_NAME = "safeTrip";
+  var client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
   // eslint-disable-line no-unused-vars
-  MongoClient.connect(url, function (err, db) {
+  client.connect(err=> {
     try {
-      var client = new MongoClient(url, { useUnifiedTopology: true });
-      client.connect();
-      const db = client.db(DB_NAME);
+      const collection = client.db("safeTrip").collection("mDB");
       console.log("Mongodb connected");
-      db.collection("mDB").insertOne(data, (err, collection) => {
+      collection.insertOne(data, (err, collection) => {
         if (err) {
           return console.log("Unable to insert report", err);
         }
         console.log("Record Inserted Successfully");
       });
-      db.close;
+      client.close;
       // return client;
     } catch (err) {
       console.log("error", err);
     }
   });
-  //var client = connect();
 });
 //<-----------end handler for POST and store in db-------->
 
 //<----start add handler to view data -------->
 router.get("/getReports", function (req, res, next) {
-  var { MongoClient } = require("mongodb");
-  var url = "mongodb://localhost:27017";
+  const MongoClient = require("mongodb").MongoClient;
+  var url = "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
   var DB_NAME = "safeTrip";
-
-  MongoClient.connect(url, function (err, db) {
+  var client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+  client.connect(err=> {
     try {
-      var client = new MongoClient(url, { useUnifiedTopology: true });
-      client.connect();
-      const db = client.db(DB_NAME);
+      const collection = client.db("safeTrip").collection("mDB");
       console.log("Mongodb connected here");
 
       var cursor;
       var resultArray = [];
 
-      cursor = db.collection("mDB").find();
+      cursor = collection.find();
 
       cursor.forEach(
         function (doc, err) {
@@ -78,7 +64,7 @@ router.get("/getReports", function (req, res, next) {
           resultArray.push(doc);
         },
         function () {
-          db.close;
+          client.close;
           res.send({ resultArray });
         }
       );

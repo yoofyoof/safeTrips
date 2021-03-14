@@ -2,7 +2,8 @@ const { MongoClient } = require("mongodb");
 
 function MyDB() {
   const myDB = {};
-  const url = "mongodb://localhost:27017";
+  const url =
+    "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
 
   myDB.getData = async (dbName, colName, query) => {
     let client = new MongoClient(url, { useUnifiedTopology: true });
