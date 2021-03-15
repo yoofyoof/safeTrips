@@ -107,6 +107,12 @@ function addMarker(property) {
 //<------------------start load data and display marker  ----------------->
 async function loadReports() {
   try {
+    const resRaw1 = await fetch("/getLogin");
+    const res1 = await resRaw1.json();
+    if (res1.username) {
+      showLogoutButton(res1.username);
+    }
+
     const resRaw = await fetch("/getReports");
     const res = resRaw.json();
 
@@ -119,12 +125,6 @@ async function loadReports() {
         codeAddress(address, event);
       }
     });
-
-    const resRaw1 = await fetch("/getLogin");
-    const res1 = await resRaw1.json();
-    if (res1.username) {
-      showLogoutButton(res1.username);
-    }
   } catch (e) {
     console.log("error", e);
   }
@@ -231,7 +231,9 @@ function showLogoutButton(username) {
 let homeLogout = document.querySelector("#logout");
 homeLogout.addEventListener("click", hideLogoutButton);
 
-function hideLogoutButton() {
+async function hideLogoutButton() {
+  await fetch("/logout");
+
   const loginButton = document.querySelector("#login");
   const logoutButton = document.querySelector("#logout");
   const loginUser = document.querySelector("#user");

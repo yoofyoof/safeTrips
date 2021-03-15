@@ -109,10 +109,18 @@ router.post("/login", async (req, res) => {
 
 router.get("/getLogin", async (req, res) => {
   try {
-    const username = req.session.username;
-    delete req.session.username;
-    res.send({ username: username });
+    res.send({ username: req.session.username });
     console.log(req.session.username);
+  } catch (e) {
+    console.log("Error", e);
+    res.status(400).send({ err: e });
+  }
+});
+
+router.get("/logout", async (req, res) => {
+  try {
+    await delete req.session.username;
+    res.send({ logout: "ok" });
   } catch (e) {
     console.log("Error", e);
     res.status(400).send({ err: e });
