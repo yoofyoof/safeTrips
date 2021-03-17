@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safe Trip</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./stylesheets/home.css" />
+  </head>
+
+  <body>
+    <div class="nav-bar">
+      <ul>
+        <li id="title" class="nav-item">Safe Trip</li>
+        <li id="login" class="nav-item">
+          <button class="btn btn-outline-success">Login</button>
+        </li>
+        <li id="logout" class="nav-item">
+          <span id="welcome"
+            >Welcome, <span id="user"></span>
+            <button class="btn btn-outline-success">Logout</button>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!--home-->
+    <div class="home">
+      <h1 id="home">Welcome to Safe Trip!</h1>
+      <p id="note">A map application where you can check the safety of the route you're taking, with the ability to report incidences of crime in your area.</p>
+    </div>
+    <!--home-->
+    <script src="./javascripts/frontend.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGEAP26ZE6CYYKRBjkcci_V8YtzlwbC6w&callback=initMap&libraries=places"
+      async
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
