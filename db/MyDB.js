@@ -2,9 +2,7 @@ const { MongoClient } = require("mongodb");
 
 function MyDB() {
   const myDB = {};
-  const url =
-    "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
-
+  var url = "${process.env.MONGODB_URL}";
   myDB.getData = async (dbName, colName, query) => {
     let client = new MongoClient(url, { useUnifiedTopology: true });
     await client.connect();

@@ -16,8 +16,7 @@ router.post("/report", (req, res) => {
   };
 
   const MongoClient = require("mongodb").MongoClient;
-  var url =
-    "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
+  var url = "${process.env.MONGODB_URL}";
   var client = new MongoClient(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -45,8 +44,7 @@ router.post("/report", (req, res) => {
 //<----start add handler to view data -------->
 router.get("/getReports", function (req, res, next) {
   const MongoClient = require("mongodb").MongoClient;
-  var url =
-    "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
+  var url = "${process.env.MONGODB_URL}";
   var client = new MongoClient(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
