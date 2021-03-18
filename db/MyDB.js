@@ -3,7 +3,8 @@ const { MongoClient } = require("mongodb");
 function MyDB() {
   const myDB = {};
   const url =
-    "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";
+    "mongodb+srv://yoofyoof:yoofyoof@safetrip.mako8.mongodb.net/safeTrip?retryWrites=true&w=majority";'
+  // You might want to consider hide the MongoDB credentials with application setting, the url contains your username and password, anybody can log in now.
 
   myDB.getData = async (dbName, colName, query) => {
     let client = new MongoClient(url, { useUnifiedTopology: true });
